@@ -1,58 +1,47 @@
-import React from 'react';
+// ComingSoon.tsx
+import React from "react";
+import { motion } from "framer-motion";
 
 const ComingSoon = () => {
-  const containerStyle: React.CSSProperties = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100vh',
-    background: 'linear-gradient(to bottom right, #1e3c72, #2a5298)',
-    color: '#fff',
-    fontFamily: 'Arial, sans-serif',
-  };
-
-  const cardStyle: React.CSSProperties = {
-    background: 'rgba(255, 255, 255, 0.1)',
-    padding: '40px',
-    borderRadius: '16px',
-    textAlign: 'center',
-    backdropFilter: 'blur(10px)',
-    border: '1px solid rgba(255, 255, 255, 0.2)',
-    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
-  };
-
-  const headingStyle: React.CSSProperties = {
-    fontSize: '3rem',
-    marginBottom: '20px',
-    fontWeight: 'bold',
-  };
-
-  const paragraphStyle: React.CSSProperties = {
-    fontSize: '1.2rem',
-    color: '#e0e0e0',
-  };
-
-  const glowBoxStyle: React.CSSProperties = {
-    marginTop: '30px',
-    display: 'inline-block',
-    padding: '12px 24px',
-    border: '2px solid #00f0ff',
-    borderRadius: '999px',
-    fontWeight: 600,
-    color: '#00f0ff',
-    backgroundColor: 'transparent',
-    textTransform: 'uppercase',
-    letterSpacing: '1px',
-    boxShadow: '0 0 15px #00f0ff, 0 0 30px #00f0ff40',
-  };
-
   return (
-    <div style={containerStyle}>
-      <div style={cardStyle}>
-        <h1 style={headingStyle}>🚧 Coming Soon</h1>
-        <p style={paragraphStyle}>We’re working hard to launch something amazing. Stay tuned!</p>
-        <div style={glowBoxStyle}>Notify Me</div>
-      </div>
+    <div className="flex items-center justify-center h-screen bg-gradient-to-br from-blue-900 to-gray-900 text-white">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="bg-white/10 backdrop-blur-md p-10 rounded-2xl shadow-xl border border-white/20 max-w-md text-center"
+      >
+        <motion.h1
+          className="text-5xl font-bold mb-4 text-white"
+          initial={{ y: -10 }}
+          animate={{ y: 0 }}
+          transition={{ duration: 0.4 }}
+        >
+          🚀 Coming Soon
+        </motion.h1>
+        <p className="text-lg text-white/80 mb-6">
+          We’re working on something awesome. Stay tuned!
+        </p>
+        <motion.div
+          animate={{
+            boxShadow: [
+              "0 0 10px #3b82f6",
+              "0 0 20px #3b82f6",
+              "0 0 30px #3b82f6",
+              "0 0 20px #3b82f6",
+              "0 0 10px #3b82f6",
+            ],
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            repeatType: "loop",
+          }}
+          style={{color: "#3b82f6", fontSize: "1.5rem", fontWeight: "bold" ,border: "2px solid #3b82f6", padding: "0.5rem 1rem", borderRadius: "0.5rem", cursor: "pointer" ,marginTop: "3rem"}}
+        >
+          Stay Connected
+        </motion.div>
+      </motion.div>
     </div>
   );
 };
